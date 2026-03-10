@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch & Countdown Timer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Timer App</h1>
+
+      <!-- Tab Navigation -->
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="stopwatch">Stopwatch</button>
+        <button class="tab-btn" data-tab="countdown">Countdown</button>
+      </div>
+
+      <!-- Stopwatch Tab -->
+      <div id="stopwatch" class="tab-content active">
+        <div class="timer-display">
+          <span id="stopwatch-display">00:00:00</span>
+        </div>
+        <div class="controls">
+          <button id="stopwatch-start" class="btn btn-primary">Start</button>
+          <button id="stopwatch-pause" class="btn btn-secondary" disabled>
+            Pause
+          </button>
+          <button id="stopwatch-reset" class="btn btn-danger">Reset</button>
+        </div>
+        <div class="laps">
+          <h3>Laps</h3>
+          <ul id="stopwatch-laps" class="lap-list"></ul>
+        </div>
+      </div>
+
+      <!-- Countdown Tab -->
+      <div id="countdown" class="tab-content">
+        <div class="timer-input">
+          <div class="input-group">
+            <label for="countdown-hours">Hours</label>
+            <input
+              type="number"
+              id="countdown-hours"
+              min="0"
+              max="23"
+              value="0"
+            />
+          </div>
+          <div class="input-group">
+            <label for="countdown-minutes">Minutes</label>
+            <input
+              type="number"
+              id="countdown-minutes"
+              min="0"
+              max="59"
+              value="1"
+            />
+          </div>
+          <div class="input-group">
+            <label for="countdown-seconds">Seconds</label>
+            <input
+              type="number"
+              id="countdown-seconds"
+              min="0"
+              max="59"
+              value="0"
+            />
+          </div>
+        </div>
+        <div class="timer-display">
+          <span id="countdown-display">00:01:00</span>
+        </div>
+        <div class="controls">
+          <button id="countdown-start" class="btn btn-primary">Start</button>
+          <button id="countdown-pause" class="btn btn-secondary" disabled>
+            Pause
+          </button>
+          <button id="countdown-reset" class="btn btn-danger">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

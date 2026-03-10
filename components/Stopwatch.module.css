@@ -1,0 +1,293 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.timerDisplay {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  padding: 80px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+  width: 100%;
+  min-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timerDisplay span {
+  font-size: 150px;
+  font-weight: bold;
+  color: white;
+  font-family: "Courier New", monospace;
+  letter-spacing: 10px;
+  display: block;
+  line-height: 1;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 600px;
+}
+
+.addTimeContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.addTimeInput {
+  width: 100px;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #667eea;
+  transition: border-color 0.3s ease;
+}
+
+.addTimeInput:focus {
+  outline: none;
+  border-color: #5568d3;
+  box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}
+
+.btn {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-width: 120px;
+}
+
+.btnPrimary {
+  background: #667eea;
+  color: white;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btnSecondary {
+  background: #f5f5f5;
+  color: #333;
+  border: 2px solid #eee;
+}
+
+.btnSecondary:hover:not(:disabled) {
+  background: #eee;
+  border-color: #ddd;
+}
+
+.btnDanger {
+  background: #ff6b6b;
+  color: white;
+}
+
+.btnDanger:hover:not(:disabled) {
+  background: #ee5a52;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.btnAdd {
+  background: #10b981;
+  color: white;
+}
+
+.btnAdd:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.laps {
+  margin-top: 10px;
+}
+
+.laps h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.lapList {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.lapItem {
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  font-family: "Courier New", monospace;
+}
+
+.lapItem:last-child {
+  border-bottom: none;
+}
+
+.lapItem:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+.lapNumber {
+  color: #999;
+  font-weight: 600;
+}
+
+.lapTime {
+  color: #667eea;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.lapList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lapList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.lapList::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 8px;
+}
+
+.lapList::-webkit-scrollbar-thumb:hover {
+  background: #5568d3;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    gap: 30px;
+  }
+
+  .timerDisplay {
+    padding: 60px;
+    min-width: 350px;
+    border-radius: 15px;
+  }
+
+  .timerDisplay span {
+    font-size: 100px;
+    letter-spacing: 6px;
+  }
+
+  .controls {
+    gap: 10px;
+    max-width: 500px;
+  }
+
+  .btn {
+    flex: 1;
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+
+  .addTimeContainer {
+    flex-wrap: wrap;
+  }
+
+  .addTimeInput {
+    width: 80px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    gap: 20px;
+  }
+
+  .timerDisplay {
+    padding: 30px 20px;
+    min-width: auto;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .timerDisplay span {
+    font-size: 50px;
+    letter-spacing: 3px;
+  }
+
+  .controls {
+    gap: 8px;
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 10px 12px;
+    max-width: 48%;
+  }
+
+  .addTimeContainer {
+    padding: 10px;
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  .addTimeInput {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .lapItem {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .lapTime {
+    font-size: 14px;
+  }
+}
