@@ -43,7 +43,7 @@ export default function Countdown() {
             id="countdown-hours"
             type="number"
             min="0"
-            max="23"
+            max="24"
             value={hours}
             onChange={(e) =>
               handleInputChange("hours", parseInt(e.target.value) || 0)
@@ -57,7 +57,7 @@ export default function Countdown() {
             id="countdown-minutes"
             type="number"
             min="0"
-            max="59"
+            max="60"
             value={minutes}
             onChange={(e) =>
               handleInputChange("minutes", parseInt(e.target.value) || 0)
@@ -71,7 +71,7 @@ export default function Countdown() {
             id="countdown-seconds"
             type="number"
             min="0"
-            max="59"
+            max="60"
             value={seconds}
             onChange={(e) =>
               handleInputChange("seconds", parseInt(e.target.value) || 0)

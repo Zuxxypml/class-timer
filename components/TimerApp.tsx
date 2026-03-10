@@ -12,7 +12,7 @@ export default function TimerApp() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Timer App</h1>
+      <h1 className={styles.title}>Stopwatch & Countdown Timer</h1>
 
       <div className={styles.tabs}>
         <button

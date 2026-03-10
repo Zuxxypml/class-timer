@@ -125,13 +125,13 @@ export const useCountdownTimer = () => {
     if (isRunning) return;
     let validValue = Math.max(0, value);
     if (type === "hours") {
-      validValue = Math.min(23, validValue);
+      validValue = Math.min(24, validValue);
       setHours(validValue);
     } else if (type === "minutes") {
-      validValue = Math.min(59, validValue);
+      validValue = Math.min(60, validValue);
       setMinutes(validValue);
     } else {
-      validValue = Math.min(59, validValue);
+      validValue = Math.min(60, validValue);
       setSeconds(validValue);
     }
   };
