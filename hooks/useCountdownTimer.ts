@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import { playTimerAlarm } from "../utils/soundUtils";
+import { showTimerAlert, showErrorToast } from "../utils/toastUtils";
 
 export const useCountdownTimer = () => {
   const [hours, setHours] = useState(0);
@@ -22,26 +24,6 @@ export const useCountdownTimer = () => {
     return `${pad(h)}:${pad(m)}:${pad(s)}`;
   };
 
-  const playAlarm = () => {
-    try {
-      const ctx = new (
-        window.AudioContext || (window as any).webkitAudioContext
-      )();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.frequency.value = 800;
-      osc.type = "sine";
-      gain.gain.setValueAtTime(0.3, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
-      osc.start(ctx.currentTime);
-      osc.stop(ctx.currentTime + 0.5);
-    } catch (e) {
-      console.error("Audio error:", e);
-    }
-  };
-
   useEffect(() => {
     if (!isRunning) return;
 
@@ -54,8 +36,8 @@ export const useCountdownTimer = () => {
         setDisplayTime(0);
         setIsRunning(false);
         hasStartedRef.current = false;
-        playAlarm();
-        alert("Time's up!");
+        playTimerAlarm();
+        showTimerAlert("Time's up!");
         if (frameIdRef.current) cancelAnimationFrame(frameIdRef.current);
         return;
       }
@@ -77,7 +59,7 @@ export const useCountdownTimer = () => {
     if (!hasStartedRef.current) {
       const totalMs = (hours * 3600 + minutes * 60 + seconds) * 1000;
       if (totalMs <= 0) {
-        alert("Please enter a valid time");
+        showErrorToast("Please enter a valid time");
         return;
       }
       totalTimeRef.current = totalMs;
